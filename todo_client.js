@@ -16,11 +16,6 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cors());
 
-// client.getAllTodos({}, (error, news) => {
-//   if (error) throw error;
-//   console.log(news);
-// });
-
 
 
 // get all todos 
@@ -35,11 +30,7 @@ app.get('/', (req, res) => {
 
 // add a todo
 app.post('/addTodo', (req, res) => {
-
-
   const body = req.body;
-
-
   client.addTodo(
     {
       id: body.id, title: body.title, todo: body.todo
@@ -52,17 +43,12 @@ app.post('/addTodo', (req, res) => {
       );
     }
   );
-
-
 })
 
 // edit a todo
-app.put('editTodo/:id', (req, res) => {
-
-
+app.put('/editTodo/:id', (req, res) => {
   const id = req.params.id;
   const body = req.body
-
   client.editTodo(
     {
       id: id,
@@ -82,9 +68,7 @@ app.put('editTodo/:id', (req, res) => {
 
 // fetch a single todo
 app.get('/todo/:id', (req, res) => {
-
   const id = req.params.id;
-
   client.getTodo(
     {
       id: id,
@@ -100,25 +84,18 @@ app.get('/todo/:id', (req, res) => {
 
 // delete a todo
 app.delete('deleteTod/:id', (req, res) => {
-
-
   const id = req.params.id;
-
   client.deleteTodo(
     {
       id: id,
     },
     (error, todo) => {
       if (error) throw error;
-
       res.status(204).json({
         message: "Successfully deleted a todo item.",
       })
-
-
     }
   );
-
 })
 
 
