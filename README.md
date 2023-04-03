@@ -30,7 +30,7 @@ npm i
 node server
 ```
 
-* Run server on nrok
+* Run server on ngrok
 
 ```bash
 ngrok tcp 50051
