@@ -1,13 +1,13 @@
 FROM node:18-alpine
 
+COPY package.json .
+
+RUN npm install 
 
 WORKDIR /grpc_server
 
 COPY . .
 
+EXPOSE 50051
 
-RUN npm install 
-
-# EXPOSE 4000
-
-CMD ["node", "server.js"]
+CMD ["npm", "run", "serve"]

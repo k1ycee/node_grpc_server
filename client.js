@@ -15,7 +15,7 @@ var packageDefinition = protoLoader.loadSync(PROTO_PATH, options);
 const TodoService = grpc.loadPackageDefinition(packageDefinition).TodoService;
 
 const client = new TodoService(
-  "2.tcp.eu.ngrok.io:11873",
+  "dns:///0.0.0.0:4000",
   grpc.credentials.createInsecure()
 );
 
